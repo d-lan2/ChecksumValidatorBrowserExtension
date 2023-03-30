@@ -5,3 +5,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     }
   });
   
+  document.getElementById('inject-content-script').addEventListener('click', () => {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      chrome.tabs.sendMessage(tabs[0].id, { type: 'injectContentScript' }, (response) => {
+        console.log(response);
+      });
+    });
+  });
