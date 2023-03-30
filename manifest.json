@@ -16,7 +16,14 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["contentScript.js"]
+      "js": ["contentScriptInjector.js"]
+    }
+  ],  
+  "web_accessible_resources": [
+    {
+      "resources": ["spark-md5.min.js"],
+      "matches": ["<all_urls>"],
+      "use_dynamic_url": true
     }
   ],
   "icons": {
